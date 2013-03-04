@@ -13,3 +13,38 @@ ash
 ## local
 let
 flet / labels
+
+
+# Exploring the syntax of Lisp code
+
+Lisp: List processing
+You can view it as just a bunch of nested lists, delimited by parentheses.
+(bla bla bla bla bla)
+
+## Symbols
+eq (case-insensitive)
+
+## Numbers
+expt (can be really huge)
+/ (rational number when integer)
+
+## Strings
+princ
+
+## code and data
+(command data-form)
+(foo     bla bla bla bla)
+
+' : data-mode
+
+## Cons cells
+The LIST of Lisp are created from cons cells
+
+cons
+(cons 'chicken 'cat) :can have only two pieces of data, and should be data mode
+car
+cdr
+list
+
+
+
