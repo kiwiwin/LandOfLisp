@@ -47,4 +47,25 @@ cdr
 list
 
 
+# Conditions
+if
+=
+oddp/evenp
 
+progn
+when / unless
+
+cond
+case
+
+and / or
+
+member
+
+find-if : return the first value satisify
+
+### Conrad's rule of sub
+use EQ to compare symbols
+use EQUAL to compare anything else
+
+eql / equalp
