@@ -87,3 +87,10 @@ find :key
 member
 
 push/assoc idiom
+
+# Read and Printing
+
+print / prin1 / princ
+read
+
+character: #\newline #\tab #\space
