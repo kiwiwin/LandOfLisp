@@ -55,7 +55,7 @@ oddp/evenp
 progn: wedge in extra commands in a single expression. a little like ; in ruby
 when / unless
 
-cond
+cond : last branch is "T" idiom
 case
 
 and / or
@@ -84,3 +84,6 @@ append
 remove-if-not
 
 find :key
+member
+
+push/assoc idiom
