@@ -69,3 +69,14 @@ use EQ to compare symbols
 use EQUAL to compare anything else
 
 eql / equalp
+
+assoc
+
+## quasiquoting
+
+`(xxx ,(command a) yyy ,(command b))
+notice: don't forget comma	
+
+mapcar
+apply
+append
