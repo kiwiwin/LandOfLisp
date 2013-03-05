@@ -82,3 +82,5 @@ apply
 append
 
 remove-if-not
+
+find :key
