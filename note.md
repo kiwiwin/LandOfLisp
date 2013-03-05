@@ -80,3 +80,5 @@ notice: don't forget comma
 mapcar
 apply
 append
+
+remove-if-not
