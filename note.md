@@ -52,7 +52,7 @@ if
 =
 oddp/evenp
 
-progn
+progn: wedge in extra commands in a single expression. a little like ; in ruby
 when / unless
 
 cond
