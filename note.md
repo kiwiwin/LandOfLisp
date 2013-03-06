@@ -104,3 +104,31 @@ print1-to-string
 coerce: convert object to another type. coerce object result-type
 
 char-downcase / char-upcase
+
+# Other form of list
+
+## Dotted List
+A list in Lisp that ends in something other than a nil is referred to as a dotted list. example:
+(cons 1 (cons 2 3))
+it should be nil for the end. but it is 3 instead fo nil
+
+## Pairs
+one use for dotted list : (cons 2 3) ==> (2 . 3)
+
+## Circular Lists
+(defparameter foo '(1 2 3))
+(setf (cdddr foo) foo)
+
+## Association Lists
+(already)
+
+substitute-if what-to-sub predicates-fun a-list
+substitute-if is a generic function that can accept multiple datatypes as parameters and handle them appropriately.
+
+digital-char-p: return true if char is digital
+
+complement: like !
+
+write-to-string
+
+mapc
