@@ -94,3 +94,13 @@ print / prin1 / princ
 read
 
 character: #\newline #\tab #\space
+
+loop
+read-from-string
+concatenate result-type sequences: it concatenate all individual elements into the result-type you want.
+quote : (quote x) == 'x
+
+print1-to-string
+coerce: convert object to another type. coerce object result-type
+
+char-downcase / char-upcase
