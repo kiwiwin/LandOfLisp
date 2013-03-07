@@ -130,5 +130,13 @@ digital-char-p: return true if char is digital
 complement: like !
 
 write-to-string
+subseq
 
 mapc
+
+with-open-file (stream filename :direction  xx :if-exists yy) (thunk)
+princ can accept another element as stream to print to instead of console
+
+keyword in lisp, little like constant
+
+maplist
