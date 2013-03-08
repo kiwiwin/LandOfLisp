@@ -140,3 +140,31 @@
 		(if (> (length w) 1)
 			(format t "The game is a tie between ~a" (mapcar #'player-letter w))
 			(format t "The winner is ~a" (player-letter (car w))))))
+
+(defun rate-position (tree player)
+	(let ((moves (caddr tree)))
+		(if moves
+			(apply (if (eq player (car tree))
+				        #'max
+				        #'min)
+			        (get-ratings tree player))
+			(let ((w (winners (cadr tree))))
+				(if (member player w)
+					(/ 1 (length w))
+					0)))))
+
+(defun get-ratings (tree player)
+	(mapcar (lambda (move)
+		        (rate-position (cadr move) player))
+	        (caddr tree)))
+
+(defun handle-computer (tree)
+	(let ((ratings (get-ratings tree (car tree))))
+		(print ratings)
+		(cadr (nth (position (apply #'max ratings) ratings) (caddr tree)))))
+
+(defun play-vs-computer (tree)
+	(print-info tree)
+	(cond ((null (caddr tree)) (announce-winner (cadr tree)))
+		   ((zerop (car tree)) (play-vs-computer (handle-human tree)))
+		   (t (play-vs-computer (handle-computer tree)))))
