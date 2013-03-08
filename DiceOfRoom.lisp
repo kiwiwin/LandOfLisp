@@ -82,7 +82,7 @@
 	                   	             ((eq pos dst) (list player (1- dice)))
 	                   	             (t hex)))))
 
-(defun add-new-dice (board player spare-dice)
+(defun add-new-dice2 (board player spare-dice)
 	(labels ((pos-add-dice (remain-list remain-dice) 
 		        (cond ((null remain-list) nil)
 		        	  ((zerop remain-dice) remain-list)
@@ -94,6 +94,22 @@
 		        	          	  (cons (car remain-list)
 		        	          	  	    (pos-add-dice (cdr remain-list) remain-dice))))))))
 	(board-array (pos-add-dice (coerce board 'list) spare-dice))))
+
+(defun add-new-dice (board player spare-dice)
+	(labels ((pos-add-dice (remain-list remain-dice acc-list)
+		        (cond ((null remain-list) acc-list)
+		        	  ((zerop remain-dice) (append acc-list remain-list))
+		        	  (t (let ((cur-player (caar remain-list))
+		        	  	       (cur-dice (cadar remain-list)))
+		        	          (if (and (eq cur-player player) (< cur-dice *max-dice*))
+		        	          	       (pos-add-dice (cdr remain-list) 
+		        	          	       	             (1- remain-dice) 
+		        	          	       	             (append acc-list (list (list cur-player (1+ cur-dice)))))
+		        	          	       (pos-add-dice (cdr remain-list)
+		        	          	                     remain-dice
+		        	          	                     (append acc-list (list (car remain-list))))
+		        	          	  ))))))
+	(board-array (pos-add-dice (coerce board 'list) spare-dice '()))))
 
 
 (defun play-vs-human (tree)
@@ -160,7 +176,6 @@
 
 (defun handle-computer (tree)
 	(let ((ratings (get-ratings tree (car tree))))
-		(print ratings)
 		(cadr (nth (position (apply #'max ratings) ratings) (caddr tree)))))
 
 (defun play-vs-computer (tree)
